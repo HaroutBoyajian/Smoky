@@ -49,12 +49,25 @@ public class GameManager : MonoBehaviour
 
         List<Card> selectedCards = new List<Card>();
 
-        // Fill the selectedCards list with pairs
-        while (selectedCards.Count < totalCards)
+        //// Fill the selectedCards list with pairs
+
+        int neededPairs = totalCards / 2;
+
+        // Ensure diversity: Randomly pick card pairs ensuring not all are the same
+        Card firstCard = cardTypes[Random.Range(0, cardTypes.Count)];
+        selectedCards.Add(firstCard);
+        selectedCards.Add(firstCard); // Add two of first type
+
+        for (int i = 1; i < neededPairs; i++)
         {
-            Card card = cardTypes[Random.Range(0, cardTypes.Count)];
-            selectedCards.Add(card);
-            selectedCards.Add(card); // Add two of each type
+            Card nextCard;
+            do
+            {
+                nextCard = cardTypes[Random.Range(0, cardTypes.Count)];
+            } while (nextCard == firstCard && cardTypes.Count > 1); // Ensure we select a different type if possible
+
+            selectedCards.Add(nextCard);
+            selectedCards.Add(nextCard);
         }
 
         Shuffle(selectedCards); // Shuffle the list to randomize pair locations
@@ -125,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearGrid()
     {
+        StopAllCoroutines();
         foreach (GameObject card in gridManager.allCards)
         {
             Destroy(card);

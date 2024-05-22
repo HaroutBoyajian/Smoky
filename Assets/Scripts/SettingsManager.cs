@@ -26,7 +26,6 @@ public class SettingsManager : MonoBehaviour
     {
         if (changedToggle.isOn)
         {
-            Debug.Log(optionName + " is now selected");
             switch (optionName)
             {
                 case "Easy":
