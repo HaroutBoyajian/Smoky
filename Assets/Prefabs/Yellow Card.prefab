@@ -283,7 +283,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2399824361020549099}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -5907051874555557686}
+        m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        m_MethodName: FlipCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-5907051874555557686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,7 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe32499fe0472845ab27629135b2837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardBackImage: {fileID: 21300000, guid: a16bdf0629eb6614c93b05a2b237c204, type: 3}
-  cardFrontImage: {fileID: 21300000, guid: ab9b2e97f54232e47a27b0260a80cb19, type: 3}
+  button: {fileID: 1898918205789435919}
+  backSprite: {fileID: 21300000, guid: a16bdf0629eb6614c93b05a2b237c204, type: 3}
+  frontSprite: {fileID: 21300000, guid: ab9b2e97f54232e47a27b0260a80cb19, type: 3}
   cardBackText: {fileID: 928000877}
   cardFrontText: {fileID: 6270727044146329137}
