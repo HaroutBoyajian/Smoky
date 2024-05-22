@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,13 +26,15 @@ public class Card : MonoBehaviour
         if (isFlipped)
             return;
 
+        isFlipped = true;
+
         StartCoroutine(Flip());
         GameManager.instance.CardFlipped(this);
     }
 
     public IEnumerator Flip()
     {
-        bool flipToFront = !isFlipped;
+        bool flipToFront = isFlipped;
 
         // Scale down width to zero
         for (float i = 1f; i >= 0f; i -= Time.deltaTime * 4)
@@ -52,7 +53,6 @@ public class Card : MonoBehaviour
         }
 
         cardImage.rectTransform.localScale = Vector3.one; // Ensure it ends properly scaled
-        isFlipped = flipToFront;
 
         cardBackText.gameObject.SetActive(!flipToFront);
         cardFrontText.gameObject.SetActive(flipToFront);
@@ -60,6 +60,7 @@ public class Card : MonoBehaviour
 
     public void ResetCard()
     {
+        isFlipped = false;
         StartCoroutine(Flip());
     }
 
