@@ -26,6 +26,12 @@ public class UIManager : MonoBehaviour
         GameManager.instance.GenerateGrid();
     }
 
+    public void RestartGame()
+    {
+        GameManager.instance.ClearGrid();
+        GameManager.instance.GenerateGrid();
+    }
+
     public void QuitGame()
     {
         Application.Quit();

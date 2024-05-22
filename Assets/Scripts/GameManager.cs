@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public AudioClip flipSound;
     public AudioClip matchSound;
     public AudioClip mismatchSound;
+    public AudioClip gameOverWin;
+
+    public GameObject winScreen;
     void Awake()
     {
         if (instance == null)
@@ -134,6 +137,11 @@ public class GameManager : MonoBehaviour
             combo = 0;
             comboText.text = combo.ToString();
         }
+        if (score == (rows * columns) / 2)
+        {
+            winScreen.SetActive(true);
+            audioSource.PlayOneShot(gameOverWin);
+        }
     }
 
     public void ClearGrid()
@@ -146,6 +154,7 @@ public class GameManager : MonoBehaviour
         gridManager.allCards.Clear();
         flippedCards.Clear();
         ResetValues();
+        winScreen.SetActive(false);
     }
 
     public void SetGridSize(int settingsRows, int settingsColumns)
