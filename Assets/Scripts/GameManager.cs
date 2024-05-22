@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,18 @@ public class GameManager : MonoBehaviour
 
     public int rows;
     public int columns;
+
+    public static GameManager instance;
+
+    private List<Card> flippedCards = new List<Card>();
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+    }
     void Start()
     {
         SetUpCards(rows, columns);
@@ -54,6 +67,37 @@ public class GameManager : MonoBehaviour
             int randomIndex = Random.Range(i, list.Count);
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
+        }
+    }
+
+    public void CardFlipped(Card card)
+    {
+        flippedCards.Add(card);
+
+        // Check for matches every two cards
+        if (flippedCards.Count == 2)
+        {
+            StartCoroutine(CheckMatch(flippedCards[0], flippedCards[1]));
+            flippedCards.Clear(); // Clear the list to wait for the next pair of cards
+        }
+    }
+
+
+    private IEnumerator CheckMatch(Card firstCard, Card secondCard)
+    {
+        yield return new WaitForSeconds(1f); // Delay to allow visualization of both cards
+
+        if (firstCard.name == secondCard.name)
+        {
+            // If there's a match
+            firstCard.RemoveCard();
+            secondCard.RemoveCard();
+        }
+        else
+        {
+            // If there isn't a match
+            firstCard.ResetCard();
+            secondCard.ResetCard();
         }
     }
 }
