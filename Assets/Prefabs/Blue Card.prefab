@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4253365753555118745}
   - component: {fileID: 7117916615320031857}
   - component: {fileID: 713456888849347781}
+  - component: {fileID: -8004241223133763307}
   m_Layer: 5
   m_Name: Blue Card
   m_TagString: Untagged
@@ -123,6 +124,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-8004241223133763307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6597383322627367716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe32499fe0472845ab27629135b2837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBackImage: {fileID: 21300000, guid: a16bdf0629eb6614c93b05a2b237c204, type: 3}
+  cardFrontImage: {fileID: 21300000, guid: 52fbbb2ff3cba854b9ebf67daa6db88d, type: 3}
+  cardBackText: {fileID: 7912522412840376464}
+  cardFrontText: {fileID: 8874992913558145478}
 --- !u!1 &7912522412840376464
 GameObject:
   m_ObjectHideFlags: 0

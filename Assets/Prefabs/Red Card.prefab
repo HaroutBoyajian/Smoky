@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1723964275626803994}
   - component: {fileID: 6893035132773804979}
   - component: {fileID: 4673307033976900398}
+  - component: {fileID: -5816996341337586891}
   m_Layer: 5
   m_Name: Red Card
   m_TagString: Untagged
@@ -203,6 +204,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-5816996341337586891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035361485740580703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbe32499fe0472845ab27629135b2837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBackImage: {fileID: 21300000, guid: a16bdf0629eb6614c93b05a2b237c204, type: 3}
+  cardFrontImage: {fileID: 21300000, guid: 8ccd51a3b374d3244841156d8dc81d94, type: 3}
+  cardBackText: {fileID: 4791234569175489961}
+  cardFrontText: {fileID: 3377955469562762822}
 --- !u!1 &4791234569175489961
 GameObject:
   m_ObjectHideFlags: 0
