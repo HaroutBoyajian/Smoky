@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private List<Card> flippedCards = new List<Card>();
 
+    public Text scoreText;
+    private int score;
     void Awake()
     {
         if (instance == null)
@@ -92,6 +95,9 @@ public class GameManager : MonoBehaviour
             // If there's a match
             firstCard.RemoveCard();
             secondCard.RemoveCard();
+
+            score++;
+            scoreText.text = score.ToString();
         }
         else
         {
