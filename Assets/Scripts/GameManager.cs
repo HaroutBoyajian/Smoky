@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     private int score;
+    public Text comboText;
+    private int combo;
 
     private AudioSource audioSource;
     public AudioClip flipSound;
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
 
             score++;
             scoreText.text = score.ToString();
+            combo++;
+            comboText.text = "x" + combo.ToString();
         }
         else
         {
@@ -112,6 +116,9 @@ public class GameManager : MonoBehaviour
             // If there isn't a match
             firstCard.ResetCard();
             secondCard.ResetCard();
+
+            combo = 0;
+            comboText.text = combo.ToString();
         }
     }
 }
