@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     private int score;
+
+    private AudioSource audioSource;
+    public AudioClip flipSound;
+    public AudioClip matchSound;
+    public AudioClip mismatchSound;
     void Awake()
     {
         if (instance == null)
@@ -27,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetUpCards(rows, columns);
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void SetUpCards(int rows, int columns)
@@ -39,7 +45,6 @@ public class GameManager : MonoBehaviour
         }
 
         List<Card> selectedCards = new List<Card>();
-        int neededPairs = totalCards / 2;
 
         // Fill the selectedCards list with pairs
         while (selectedCards.Count < totalCards)
@@ -75,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     public void CardFlipped(Card card)
     {
+        audioSource.PlayOneShot(flipSound);
         flippedCards.Add(card);
 
         // Check for matches every two cards
@@ -92,6 +98,7 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.name == secondCard.name)
         {
+            audioSource.PlayOneShot(matchSound);
             // If there's a match
             firstCard.RemoveCard();
             secondCard.RemoveCard();
@@ -101,6 +108,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(mismatchSound);
             // If there isn't a match
             firstCard.ResetCard();
             secondCard.ResetCard();
