@@ -14,12 +14,16 @@ public class UIManager : MonoBehaviour
     {
         menuPanel.SetActive(true);
         gamePanel.SetActive(false);
+
+        GameManager.instance.ClearGrid();
     }
 
     public void ShowGame()
     {
         menuPanel.SetActive(false);
         gamePanel.SetActive(true);
+
+        GameManager.instance.GenerateGrid();
     }
 
     public void QuitGame()

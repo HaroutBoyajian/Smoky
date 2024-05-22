@@ -30,13 +30,14 @@ public class GameManager : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-    }
-    void Start()
-    {
-        SetUpCards(rows, columns);
+
         audioSource = GetComponent<AudioSource>();
     }
 
+    public void GenerateGrid()
+    {
+        SetUpCards(rows, columns);
+    }
     public void SetUpCards(int rows, int columns)
     {
         int totalCards = rows * columns;
@@ -120,5 +121,31 @@ public class GameManager : MonoBehaviour
             combo = 0;
             comboText.text = combo.ToString();
         }
+    }
+
+    public void ClearGrid()
+    {
+        foreach (GameObject card in gridManager.allCards)
+        {
+            Destroy(card);
+        }
+        gridManager.allCards.Clear();
+        flippedCards.Clear();
+        ResetValues();
+    }
+
+    public void SetGridSize(int settingsRows, int settingsColumns)
+    {
+        rows = settingsRows;
+        columns = settingsColumns;
+    }
+
+    public void ResetValues()
+    {
+        score = 0;
+        scoreText.text = score.ToString();
+
+        combo = 0;
+        comboText.text = combo.ToString();
     }
 }
