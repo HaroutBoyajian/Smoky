@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject cardPrefab; 
-    public GridManager gridManager; 
-    public List<Card> cardTypes; 
+    public GridManager gridManager;
+    public List<Card> cardTypes;
 
+    public int rows;
+    public int columns;
     void Start()
     {
-        SetUpCards(2, 3); 
+        SetUpCards(rows, columns);
     }
 
     public void SetUpCards(int rows, int columns)
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         foreach (Card card in selectedCards)
         {
             GameObject newCard = Instantiate(card.gameObject, gridManager.transform);
-            
+
             gridManager.allCards.Add(newCard);
         }
 

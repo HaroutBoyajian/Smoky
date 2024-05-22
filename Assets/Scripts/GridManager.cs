@@ -4,16 +4,17 @@ using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour
 {
-    public GridLayoutGroup gridLayoutGroup; 
+    public GridLayoutGroup gridLayoutGroup;
     public RectTransform gridRectTransform;
     public List<GameObject> allCards = new List<GameObject>();
 
     // This method sets up the grid based on the provided rows and columns
     public void SetUpGrid(int rows, int columns)
     {
-        float width = gridRectTransform.rect.width / columns - gridLayoutGroup.spacing.x * (columns - 1) / columns;
-        float height = gridRectTransform.rect.height / rows - gridLayoutGroup.spacing.y * (rows - 1) / rows;
-        gridLayoutGroup.cellSize = new Vector2(width, height);
+        float cellWidth = (gridRectTransform.rect.width - gridLayoutGroup.padding.left - gridLayoutGroup.padding.right - (columns - 1) * gridLayoutGroup.spacing.x) / columns;
+        float cellHeight = (gridRectTransform.rect.height - gridLayoutGroup.padding.top - gridLayoutGroup.padding.bottom - (rows - 1) * gridLayoutGroup.spacing.y) / rows;
+        gridLayoutGroup.cellSize = new Vector2(cellWidth, cellHeight);
+
 
         // Set constraints to ensure the layout fits the rows and columns
         gridLayoutGroup.constraint = GridLayoutGroup.Constraint.FixedColumnCount;

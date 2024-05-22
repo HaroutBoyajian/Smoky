@@ -176,16 +176,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 500
-    m_Right: 500
+    m_Left: 200
+    m_Right: 200
     m_Top: 200
-    m_Bottom: 0
+    m_Bottom: 200
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 300}
-  m_Spacing: {x: 100, y: 100}
-  m_Constraint: 1
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 10, y: 10}
+  m_Constraint: 0
   m_ConstraintCount: 4
 --- !u!114 &169267788
 MonoBehaviour:
@@ -523,13 +523,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d421a18507a7c3a48992198f99abd890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPrefab: {fileID: 0}
   gridManager: {fileID: 169267790}
   cardTypes:
   - {fileID: -8004241223133763307, guid: d4dfbc2e6e545ab4086fcebe8c5da0b2, type: 3}
   - {fileID: 3671231635644148537, guid: ad06f3e6b38c79e4aa1e0f055e66d968, type: 3}
   - {fileID: -5816996341337586891, guid: bf31539490c78b64faf02bed7a1143d2, type: 3}
   - {fileID: -5907051874555557686, guid: 18472d58ae3f4204cbcba07f4a70e6d5, type: 3}
+  rows: 5
+  columns: 6
 --- !u!4 &1145862880
 Transform:
   m_ObjectHideFlags: 0
